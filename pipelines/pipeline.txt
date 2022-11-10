@@ -1,3 +1,43 @@
 node {
-    
+    def mvnHome
+    stage('Preparation') {
+        git 'https://yourgitlabrepogoeshere.com'
+        mvnHome = tool 'maven'
+    }
+
+    stage('Build') {
+        sh "'${mvnHome}/bin/mvn' clean package"
+    }
+
+    stage('Run Unit and Integration Tests') {
+        docker.image('mariadb:latest').withRun('-e MYSQL_DATABASE=mariadb -e MYSQL_ROOT_PASSWORD=root -p 3306:3306') {
+            mysql -> docker.image('maven:3.8-alpine').inside("--link ${mariadb.id}:mariadb -e ENV_TEST_MYSQL_HOST=mariadb) {
+                sh 'mvn clean verify'
+            }
+        }
+    }
+
+    stage('Run Acceptance Tests') {
+
+    }
+
+    stage('SonarQube Scan') {
+
+    }
+
+    stage('Deploy Snapshot Release to Artifactory') {
+        archive 'target/*.jar'
+    }
+
+    stage('Run Smoke Tests') {
+
+    }
+
+    stage('Run Performance Tests') {
+
+    }
+
+    stage('Deploy Release to Artifactory') {
+
+    }
 }
