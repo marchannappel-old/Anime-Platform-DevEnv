@@ -1,5 +1,6 @@
 # Jenkins Plugins
 
+- [NPM and Yarn Wrapper](https://plugins.jenkins.io/npm-yarn-wrapper-steps/)
 - [Dependency Analyzer](https://plugins.jenkins.io/dependencyanalyzer/)
 - [Maven Repository Server](https://plugins.jenkins.io/repository/)
 - [JUnit Realtime Test Reporter](https://plugins.jenkins.io/junit-realtime-test-reporter/)
@@ -8,6 +9,7 @@
 - [Gitlab](https://plugins.jenkins.io/gitlab-plugin/)
 - [Gitlab API](https://plugins.jenkins.io/gitlab-api/)
 - [Gitlab Branch Source](https://plugins.jenkins.io/gitlab-branch-source/)
+- [Doxygen Documentation](https://plugins.jenkins.io/doxygen/)
 
 ## External Tool Integration
 
